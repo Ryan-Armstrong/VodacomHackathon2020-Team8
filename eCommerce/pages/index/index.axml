@@ -12,6 +12,4 @@
     </view>
   </view>
 </view>
-<view class="app-nav">
-  
-</view>
+<app-nav></app-nav>
