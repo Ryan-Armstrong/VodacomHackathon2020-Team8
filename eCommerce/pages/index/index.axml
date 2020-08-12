@@ -1,0 +1,15 @@
+<view class="banner">
+  <search-bar value="{{value}}" placeholder="What are you looking for? " onInput="handleInput" onClear="handleClear" onFocus="handleFocus" onBlur="handleBlur" onCancel="handleCancel" onSubmit="handleSubmit" showCancelButton="{{false}}" />
+</view>
+<view class="section">
+  <text class="title">Categories</text>
+  <view class="categories">
+    <view class="item" a:for="{{categories}}">
+      <image mode="scaleToFill" class="item-icon" src="{{item.image}}"/>
+      <text class="item-label">{{item.name}}</text>
+      <text class="item-count">({{item.products.total_count}})</text>
+      <view class="icon-cheveron-right"></view>
+    </view>
+  </view>
+</view>
+<app-nav></app-nav>

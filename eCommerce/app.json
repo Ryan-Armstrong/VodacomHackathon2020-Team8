@@ -1,0 +1,10 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/checkout/checkout",
+    "pages/cart/cart"
+  ],
+  "window": {
+    "defaultTitle": "My App"
+  }
+}

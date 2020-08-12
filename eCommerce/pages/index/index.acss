@@ -1,0 +1,45 @@
+.banner {
+  background-image: url("assets/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  height: 400rpx;
+  padding-top: 100rpx;
+  display: block;
+  margin-bottom: 0.5rem; }
+  .banner .am-search {
+    background-color: transparent; }
+    .banner .am-search-input {
+      border-radius: 10rpx;
+      background-color: rgba(255, 255, 255, 0.5);
+      color: #fff;
+      height: 30px;
+      line-height: 30px; }
+
+.title {
+  font-weight: bold;
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+  display: block; }
+
+.categories .item {
+  background-color: #fff;
+  color: #111;
+  display: flex;
+  padding: 15rpx 30rpx;
+  margin-bottom: 20rpx;
+  align-items: center;
+  border-radius: 10rpx; }
+  .categories .item-icon {
+    width: 60rpx;
+    height: 60rpx;
+    display: block;
+    margin-right: 30rpx; }
+  .categories .item-count {
+    color: #666;
+    margin-right: 30rpx; }
+  .categories .item-label {
+    margin-right: 15rpx; }
+  .categories .item .icon-cheveron-right {
+    margin-left: auto; }
