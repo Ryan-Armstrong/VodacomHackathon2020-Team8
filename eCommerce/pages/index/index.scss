@@ -1,4 +1,60 @@
-page {
-  justify-content: space-between
+@import '../../theme/variables';
+
+.banner{
+  background-image: url('assets/bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  height: 400rpx;
+  padding-top: 100rpx;
+  display: block;
+  margin-bottom: 0.5rem;
+
+  .am-search{
+    background-color: transparent;
+    &-input{
+      border-radius:10rpx;
+      background-color: rgba(255,255,255,.5);
+      color: $white100;
+      height: 30px;
+      line-height: 30px;
+    }
+  }
+}
+
+.title{
+  font-weight: bold;
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+  display: block;
+}
+
+.categories{
+  .item{
+    background-color:$white100;
+    color: $black80;
+    display: flex;
+    padding: 15rpx 30rpx;
+    margin-bottom: 20rpx;
+    align-items: center;
+    border-radius: 10rpx;
+    &-icon{
+      width:60rpx;
+      height: 60rpx;
+      display: block;
+      margin-right:30rpx;
+    }
+    &-count{
+      color:$black30;
+      margin-right:30rpx;
+    }
+    &-label{
+      margin-right:15rpx;
+    }
+    .icon-cheveron-right {
+      margin-left: auto;
+    }
+  }
 }
 
