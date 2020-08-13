@@ -3,6 +3,7 @@ const app = getApp();
 Page({
   data:{
     swipeIndex: null,
+    cartItems:[],
   },
 
   onLoad(query) {

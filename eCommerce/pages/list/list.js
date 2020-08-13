@@ -6,10 +6,12 @@ Page({
     category: {},
     isLoading: false,
     toggleText: "Show more",
+    navItems: [],
   },
   onLoad(query) {
     // Page load
     console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
+    this.setData({navItems: app.navItems});
     let id = query.id || "59"
     my.showLoading({
       content: "loading..."

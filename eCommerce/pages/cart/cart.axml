@@ -8,9 +8,10 @@
       <swipe-action
       index="{{index}}"
       restore="{{swipeIndex === null || swipeIndex !== index}}"
-      right="{ type: 'edit', text: ' Reduce ' }"
+      right="{{{type: 'delete', text: ' Delete ' }}}"
       onRightItemClick="onRightItemClick"
       onSwipeStart="onSwipeStart"
+      extra="item{{index}}"
       >
         <list-item thumb="{{item.productImageUrl}}" index="{{index}}" align="middle" onClick="cartItemClick" key="items-{{index}}" last="{{index === (cartItems.length - 1)}}">
           <view>
