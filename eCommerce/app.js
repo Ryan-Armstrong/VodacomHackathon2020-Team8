@@ -107,7 +107,18 @@ App({
     },
   ],
 
-
+  Orders: [
+    {
+    OrderID:"1",
+    PaymentMethodSelected: "Credit Card 1",
+    DeliveryTypeSelected: "Collect In Store",
+    DeliveryAddressTitle: "",
+    DateCreated:Date.now(),
+    TotalItems:1,
+    TotalPrice:998,
+    TotalQuantity:2,
+    }
+  ],
 
   },
 

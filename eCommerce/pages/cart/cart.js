@@ -65,6 +65,7 @@ Page({
       app.data.cartHeader.TotalItems = itemcount;
       app.data.cartHeader.TotalPrice = totalPriceCalc;
       app.data.cartHeader.TotalQuantity = totalQuantity;
+      app.data.cartHeader.DateCreated = Date.now();
       this.setData({cartHeader: app.data.cartHeader});
   },
  

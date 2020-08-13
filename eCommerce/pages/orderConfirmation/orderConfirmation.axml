@@ -18,7 +18,7 @@
         </label>
       </radio-group>
   </view>
-  <view>
+  <view >
     Select Delivery Type
      <radio-group onChange="deliveryTypeRadioChange">
         <label>
@@ -30,7 +30,7 @@
           Deliver
         </label>
   </view>
-  <view>
+  <view hidden={{deliveryAddressVisible}}>
     Select Address
       <radio-group onChange="addressRadioChange">
         <label a:for="{{customerData.CustomerAddresses}}">
@@ -40,5 +40,9 @@
          </label>
       </radio-group>
   </view>
+
+<view>
+  <button size="default" type="primary" onTap="placeOrder">Place Order</button>
+</view>
 
 </view>
