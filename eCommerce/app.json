@@ -3,7 +3,8 @@
      "pages/list/list",
     "pages/index/index",
     "pages/checkout/checkout",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/orderConfirmation/orderConfirmation" 
    
   ],
   "window": {
