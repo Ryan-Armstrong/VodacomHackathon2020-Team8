@@ -3,7 +3,7 @@ App({
   data:{
 
   customerData: {
-  CustomerID: "UninitialisedCustomerID",
+  CustomerID: "Cust123",
   CustomerName: "UninitialisedCustomerName",
   CustomerPaymentMethods: [
       {
@@ -109,7 +109,7 @@ App({
 
   Orders: [
     {
-    OrderID:"1",
+    OrderID:"Cust123-1",
     PaymentMethodSelected: "Credit Card 1",
     DeliveryTypeSelected: "Collect In Store",
     DeliveryAddressTitle: "",
@@ -117,6 +117,7 @@ App({
     TotalItems:1,
     TotalPrice:998,
     TotalQuantity:2,
+    OrderStatus:"Complete",
     }
   ],
 

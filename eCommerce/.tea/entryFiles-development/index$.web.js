@@ -10,3 +10,4 @@ require('../../pages/cart/cart?hash=171a3e74be7d2205491487e57405aa4928385f5a');
 require('../../pages/index/index?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/checkout/checkout?hash=32d7d2807ed4e666ef03b4b3fe8c38ecf2e34e68');
 require('../../pages/orderConfirmation/orderConfirmation?hash=3e2e5e2d473d03821badb5452a72c12422f436f6');
+require('../../pages/Orders/Orders?hash=3e2e5e2d473d03821badb5452a72c12422f436f6');
