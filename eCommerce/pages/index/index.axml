@@ -4,7 +4,7 @@
 <view class="section">
   <text class="title">Categories</text>
   <view class="categories">
-    <view class="item" a:for="{{categories}}">
+    <view class="item" a:for="{{categories}}" onTap="handleCategoryTap" data-category-id="{{item.id}}">
       <image mode="scaleToFill" class="item-icon" src="{{item.image}}"/>
       <text class="item-label">{{item.name}}</text>
       <text class="item-count">({{item.products.total_count}})</text>

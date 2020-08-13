@@ -1,0 +1,8 @@
+{
+  "transparentTitle": "none",
+  "defaultTitle": "",
+  "usingComponents": {
+        "search-bar": "mini-antui/es/search-bar/index",
+        "app-nav": "/components/nav/index"
+      }
+}
