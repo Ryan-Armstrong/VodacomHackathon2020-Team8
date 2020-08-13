@@ -1,0 +1,44 @@
+<view>
+  <view>
+    Order Summary
+  </view>
+  <view>
+    Total Items in Cart: {{cartHeader.TotalQuantity}}
+  </view>
+  <view>
+    Total Price: {{cartHeader.TotalPrice}}
+  </view>
+  <view>
+    Select Payment Method
+      <radio-group onChange="paymentRadioChange">
+        <label a:for="{{customerData.CustomerPaymentMethods}}">
+          <radio value="{{item.PaymentMethodTitle}}"/>
+             {{item.PaymentMethodTitle}}
+          </radio>
+        </label>
+      </radio-group>
+  </view>
+  <view>
+    Select Delivery Type
+     <radio-group onChange="deliveryTypeRadioChange">
+        <label>
+          <radio value="CollectInStore"/>
+          Collect in Store
+        </label>
+        <label>
+          <radio value="Deliver"/>
+          Deliver
+        </label>
+  </view>
+  <view>
+    Select Address
+      <radio-group onChange="addressRadioChange">
+        <label a:for="{{customerData.CustomerAddresses}}">
+          <radio value="{{item.AddressTitle}}"/>
+            {{item.AddressTitle}}
+          </radio>
+         </label>
+      </radio-group>
+  </view>
+
+</view>

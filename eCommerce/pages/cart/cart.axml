@@ -1,3 +1,44 @@
+
 <view>
-  this is a blank page
+  <list>
+    <view slot="header">
+      Swipe left to reduce quantity and right to increase
+    </view>
+    <view a:for="{{cartItems}}" key="{{item.productSku}}">
+      <swipe-action
+      index="{{index}}"
+      restore="{{swipeIndex === null || swipeIndex !== index}}"
+      right="{ type: 'edit', text: ' Reduce ' }"
+      onRightItemClick="onRightItemClick"
+      onSwipeStart="onSwipeStart"
+      >
+        <list-item thumb="{{item.productImageUrl}}" index="{{index}}" align="middle" onClick="cartItemClick" key="items-{{index}}" last="{{index === (cartItems.length - 1)}}">
+          <view>
+            <view>
+              {{item.productTitle}}
+            </view>
+            <view>
+              R{{item.productPrice}}
+            </view>
+          </view>
+          <view slot="extra">
+            {{item.productQuantity}}
+          </view>
+        </list-item>
+      </swipe-action>
+    </view>
+  </list>
+</view>
+
+<view class="summaryArea">
+  <view class="cartTotalLabel">
+    Total:
+  </view>
+  <view class="cartTotalValue">
+     {{cartHeader.TotalPrice}}
+  </view>
+  <view class="checkoutButton" onTap="Checkout">
+      Checkout
+  </view>
+</view>
 </view>
