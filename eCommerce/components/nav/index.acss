@@ -1,0 +1,15 @@
+.app-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  border-top: 1px solid #ccc;
+  padding: 30rpx 0;
+  justify-content: space-around;
+  background: #fff; }
+  .app-nav-icon {
+    font-size: 40rpx;
+    color: #666; }
+  .app-nav-icon-active {
+    color: #0072ff; }

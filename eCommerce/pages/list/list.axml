@@ -1,0 +1,22 @@
+<view class="category" onTap="handleCategoryTap" data-category-id="{{category.id}}">
+  <image mode="scaleToFill" class="category-icon" src="{{category.image}}"/>
+  <text class="category-label">{{category.name}}</text>
+  <view class="icon-cheveron-down"></view>
+</view>
+<view class="list">
+  <view class="container">
+    <view class="row">
+      <view class="col-6 wrapper" a:for="{{productList}}" onTap="handleProductTap" data-product-id="{{item.sku}}">
+        <view class="item">
+          <image mode="aspectFill" class="item-image" src="{{item.image.url}}"/>
+          <view class="item-copy">
+            <text class="item-label">{{item.name}}</text>
+            <text class="item-price">R{{item.price_range.minimum_price.regular_price.value}}</text>
+            <view class="item-action">{{(item.type_id === "virtual") ? "book now" : "add to cart"}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<app-nav></app-nav>

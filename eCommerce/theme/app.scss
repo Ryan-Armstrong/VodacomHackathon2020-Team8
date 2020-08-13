@@ -1,0 +1,11 @@
+@import 'fonts';
+@import 'layout';
+@import 'lib/bootstrap/bootstrap-grid.scss';
+
+page {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(244,248,254);
+}
+
+

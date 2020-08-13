@@ -2,15 +2,15 @@ const app = getApp();
 
 Page({
   data: {
-    categories: [],
+    productList: [],
+    category: {},
     isLoading: false,
     toggleText: "Show more",
-    categoriesCollapsed: false,
-    searchText: ""
   },
   onLoad(query) {
     // Page load
     console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
+    let id = query.id || "59"
     my.showLoading({
       content: "loading..."
     });
@@ -20,23 +20,50 @@ Page({
       headers: app.api.headers,
       data: {
         query: `{
-  categoryList {
-    children {
-      id
-      name
-      image
-      products {
-        total_count
-      }
+  products(
+    filter: {
+      category_id: {
+        eq: "${id}"
       }
     }
-  }`
+  ) {
+    items {
+      sku,
+      type_id,
+      name,
+      url_key,
+      image { 
+        url 
+        label 
+      },
+      price_range {
+        minimum_price {
+          regular_price {
+            value
+            currency
+          }
+        }
+      }
+      categories{ 
+        id 
+        name 
+        url_key 
+        image
+      } 
+    },
+    page_info {
+      page_size
+      current_page
+      total_pages
+    }
+    total_count
+  }
+}`
       },
       dataType: "json",
       success: ({ data }) => {
-        if (data.data.categoryList.length) {
-          this.setData({ categories: data.data.categoryList[0].children });
-        }
+        console.log("success", data);
+        this.setData({ productList: data.data.products.items, category: data.data.products.items[0].categories[0]});
       },
       fail: function(res) {
         my.alert({ content: "fail" });
@@ -44,6 +71,7 @@ Page({
       },
       complete: function(res) {
         my.hideLoading();
+        console.log("completeccess", res);
       }
     });
   },
@@ -93,10 +121,9 @@ Page({
       value: ""
     });
   },
-  handleCategoryTap(e) {
-    const categoryId = e.target.dataset.categoryId;
-    my.navigateTo({
-      url: `../list/list?id=${categoryId}`
-    })
+  handleSubmit(value) {
+    my.alert({
+      content: value
+    });
   }
 });
