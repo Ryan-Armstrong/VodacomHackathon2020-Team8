@@ -1,0 +1,74 @@
+@import '../../theme/variables';
+
+.category {
+  background-color: $white100;
+  color: $black80;
+  position: fixed;
+  width: 100%;
+  top:0;
+  display: flex;
+  z-index: 100;
+  padding: 15rpx 30rpx;
+  margin-bottom: 20rpx;
+  align-items: center;
+  border-radius: 10rpx;
+  border-bottom: 1px solid #ccc;
+  &-icon {
+    width: 60rpx;
+    height: 60rpx;
+    display: block;
+    margin-right: 30rpx;
+  }
+  &-count {
+    color: $black30;
+    margin-right: 30rpx;
+  }
+  &-label {
+    margin-right: 15rpx;
+  }
+  .icon-cheveron-down {
+    margin-left: auto;
+  }
+}
+
+.list {
+  padding-top:120rpx;
+  padding-bottom:120rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .wrapper{
+    padding: 15rpx;
+  }
+  .item{
+    display: flex;
+    flex-direction: column;
+    background-color: $white100;
+    border-radius: 20rpx;
+    &-copy{
+      padding:15rpx 30rpx;
+    }
+    &-label, &-price{
+      display: block;
+    }
+    &-label{
+      color:$black30;
+      font-size:24rpx;
+      margin-bottom:10rpx;
+    }
+    &-price{
+      font-weight:bold;
+      color:$black100;
+    }
+    &-image{
+      width: 100%;
+      max-height: 300rpx;
+      border-top-left-radius: 20rpx;
+      border-top-right-radius: 20rpx;
+    }
+  }
+}
+
+page{
+  position: relative;
+}

@@ -1,5 +1,5 @@
 {
-  "transparentTitle": "always",
+  "transparentTitle": "none",
   "defaultTitle": "",
   "usingComponents": {
         "search-bar": "mini-antui/es/search-bar/index",

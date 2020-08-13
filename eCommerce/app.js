@@ -134,4 +134,14 @@ App({
     //add item to the cart
     //recalculate cart
   },
+  appData: {
+    categories: [],
+  },
+  api: {
+    url: 'https://integration-5ojmyuq-mgr5bk4tqgnlo.eu-5.magentosite.cloud/graphql',
+    headers: {
+      'Authorization-GraphQL': 'Bearer xzbwcatpzav7ojwe1uahk6pu80siwlkd',
+      Store: 'MainStoreView',
+    }
+  }
 });

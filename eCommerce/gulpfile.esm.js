@@ -14,7 +14,28 @@ function compileSass() {
     })))
     .pipe(dest('pages'));
 };
+function compileComponentSass() {
+  return src('components/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(rename((function (path) {
+      // Updates the object in-place
+      path.extname = ".acss";
+    })))
+    .pipe(dest('components'));
+};
+
+function compileTheme() {
+  return src('theme/app.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(rename((function (path) {
+      // Updates the object in-place
+      path.extname = ".acss";
+    })))
+    .pipe(dest('./'));
+}
 
 export default function () {
   watch('pages/**/*.scss', compileSass);
+  watch('components/**/*.scss', compileComponentSass);
+  watch('theme/**/*.scss', compileTheme);
 }
