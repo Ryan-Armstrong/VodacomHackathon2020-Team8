@@ -17,6 +17,9 @@ Page({
     // Page loading is complete
   },
   onShow() {
+    this.setData({cartItems:app.data.cartItems});
+    this.setData({cartHeader:app.data.cartHeader});
+    this.calculateCart();
     // Page display
   },
   onHide() {
