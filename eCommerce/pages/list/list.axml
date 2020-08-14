@@ -1,7 +1,15 @@
-<view class="category" onTap="handleCategoryTap" data-category-id="{{category.id}}">
-  <image mode="scaleToFill" class="category-icon" src="{{category.image}}"/>
-  <text class="category-label">{{category.name}}</text>
-  <view class="icon-cheveron-down"></view>
+<view class="category" onTap="handleDropDownTap" data-category-id="{{category.id}}">
+  <view class="selected">
+    <image mode="scaleToFill" class="selected-icon" src="{{category.image}}"/>
+    <text class="selected-label">{{category.name}}</text>
+    <view class="icon-cheveron-down {{!hideDropDown ? 'rotate' : ''}}"></view>
+  </view>
+  <view class="dropdown {{(hideDropDown)?'hide-dropdown':''}}">
+    <view class="list-item {{(category.id === item.id) ? 'active' : ''}}" a:for="{{categories}}" onTap="handleCategoryTap" data-category="{{item}}">
+      <image mode="scaleToFill" class="list-item-icon" src="{{item.image}}"/>
+      <text class="list-item-label">{{item.name}}</text>
+    </view>
+  </view>
 </view>
 <view class="list">
   <view class="container">

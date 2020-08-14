@@ -16,5 +16,29 @@
   }
   &-icon-active{
     color: $primary;
+    .pill{
+      background-color:$primary;
+    }
   }
+}
+
+.icon-wrapper{
+  position: relative;
+}
+
+.pill{
+  border-radius:15rpx;
+  width:30rpx;
+  height:30rpx;
+  color:$white100;
+  background-color: $black100;
+  position: absolute;
+  top:-15rpx;
+  right:-15rpx;
+  font-size:18rpx;
+  border:2rpx solid $white100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight:bold;
 }

@@ -4,17 +4,14 @@ Page({
   data: {
     productList: [],
     category: {},
+    categories: [],
     isLoading: false,
-    toggleText: "Show more",
+    hideDropDown: true,
     navItems: [],
     cartTotal: 0,
-    bookingTotal: 0,
+    bookingTotal: 0
   },
-  onLoad(query) {
-    // Page load
-    console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
-    this.setData({navItems: app.navItems});
-    let id = query.id || "59"
+  fetchProducts(id) {
     my.showLoading({
       content: "loading..."
     });
@@ -70,7 +67,10 @@ Page({
       dataType: "json",
       success: ({ data }) => {
         console.log("success", data);
-        this.setData({ productList: data.data.products.items, category: data.data.products.items[0].categories[0]});
+        this.setData({
+          productList: data.data.products.items,
+          category: data.data.products.items[0].categories[0]
+        });
       },
       fail: function(res) {
         my.alert({ content: "fail" });
@@ -81,6 +81,14 @@ Page({
         console.log("completeccess", res);
       }
     });
+  },
+  onLoad(query) {
+    // Page load
+    console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
+    this.setData({ navItems: app.navItems, categories: app.categories });
+    this.setData({});
+    let id = query.id || "59";
+    this.fetchProducts(id);
   },
   onReady() {
     // Page loading is complete
@@ -133,10 +141,19 @@ Page({
       content: value
     });
   },
-  handleProductTap(e){
+  handleProductTap(e) {
     const product = e.target.dataset.product;
     app.addToCart(product);
-    this.setData({cartTotal: app.cart.length})
+    this.setData({ cartTotal: app.cart.length, navItems: app.navItems });
     console.log("cart items", this.data.cartTotal);
+    console.log("nav items", this.data.navItems);
+  },
+  handleCategoryTap(e) {
+    console.log("category tap", e);
+    // this.setData({ category: e.target.dataset.category });
+    this.fetchProducts(e.target.dataset.category.id);
+  },
+  handleDropDownTap(e) {
+    this.setData({ hideDropDown: !this.data.hideDropDown });
   }
 });

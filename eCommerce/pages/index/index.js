@@ -37,6 +37,7 @@ Page({
       dataType: "json",
       success: ({ data }) => {
         if (data.data.categoryList.length) {
+          app.categories = data.data.categoryList[0].children;
           this.setData({ categories: data.data.categoryList[0].children });
         }
       },

@@ -1,18 +1,13 @@
 @import '../../theme/variables';
 
-.category {
+.selected, .list-item{
   background-color: $white100;
-  color: $black80;
-  position: fixed;
-  width: 100%;
-  top:0;
   display: flex;
-  z-index: 100;
+  width: 100%;
   padding: 15rpx 30rpx;
-  margin-bottom: 20rpx;
-  align-items: center;
-  border-radius: 10rpx;
   border-bottom: 1px solid #ccc;
+  align-items: center;
+  z-index:1;
   &-icon {
     width: 60rpx;
     height: 60rpx;
@@ -28,7 +23,40 @@
   }
   .icon-cheveron-down {
     margin-left: auto;
+    transition: all 0.5s ease;
   }
+  .rotate {
+    transform: rotate(180deg);
+  }
+}
+
+.active{
+  background-color:#ddd;
+}
+
+.dropdown{
+  background-color: $white100;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  transition: all 0.5s ease;
+  z-index:0;
+}
+
+.hide-dropdown{
+  transform: translateY(-15em);
+  height:0;
+}
+
+.category {
+  color: $black80;
+  position: fixed;
+  width: 100%;
+  top:0;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  margin-bottom: 20rpx;
 }
 
 .list {

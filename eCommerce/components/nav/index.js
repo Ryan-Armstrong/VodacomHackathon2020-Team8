@@ -7,7 +7,9 @@ Component({
   onInit() {
     this.setData({navItems: this.props.navItems})
   }, // trigger on component creation, added in version 2.0.0
-  deriveDataFromProps(nextProps) {}, // trigger on component creation and before update, added in version 2.0.0
+  deriveDataFromProps(nextProps) {
+    this.setData({navItems: nextProps.navItems})
+  }, // trigger on component creation and before update, added in version 2.0.0
   didMount() {}, // Lifecycle function
   didUpdate() {},
   didUnmount() {},

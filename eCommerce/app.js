@@ -106,6 +106,8 @@ App({
         quantity: 1,
         price: product.price_range.minimum_price.regular_price.value,
       });
+      this.navItems[1].pill.counter++;
+      this.navItems[1].pill.show = true;
       my.showToast({
         content: `${product.name} added to cart`,
       });
@@ -123,9 +125,7 @@ App({
   increaseQuantity(index) {
     this.cart[index].quantity++;
   },
-  appData: {
-    categories: [],
-  },
+  categories: [],
   cart: [],
   api: {
     url:

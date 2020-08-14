@@ -1,3 +1,6 @@
 <view class="app-nav">
-  <view a:for="{{navItems}}" data-path="{{item.path}}" onTap="handleTap" class="{{item.icon}} {{item.active ? 'app-nav-icon-active' : ''}} app-nav-icon"></view>
+  <view a:for="{{navItems}}" data-path="{{item.path}}" onTap="handleTap" class="{{item.active ? 'app-nav-icon-active' : ''}} icon-wrapper">
+    <view class="{{item.icon}} app-nav-icon"></view>
+    <view class="pill" hidden="{{!item.pill.show}}">{{item.pill.counter}}</view>
+  </view>
 </view>

@@ -13,3 +13,24 @@
     color: #666; }
   .app-nav-icon-active {
     color: #0072ff; }
+    .app-nav-icon-active .pill {
+      background-color: #0072ff; }
+
+.icon-wrapper {
+  position: relative; }
+
+.pill {
+  border-radius: 15rpx;
+  width: 30rpx;
+  height: 30rpx;
+  color: #fff;
+  background-color: #000;
+  position: absolute;
+  top: -15rpx;
+  right: -15rpx;
+  font-size: 18rpx;
+  border: 2rpx solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold; }
