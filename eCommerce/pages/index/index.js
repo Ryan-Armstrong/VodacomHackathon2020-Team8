@@ -6,11 +6,13 @@ Page({
     isLoading: false,
     toggleText: "Show more",
     categoriesCollapsed: false,
-    searchText: ""
+    searchText: "",
+    navItems: []
   },
   onLoad(query) {
     // Page load
     console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
+    this.setData({navItems: app.navItems})
     my.showLoading({
       content: "loading..."
     });

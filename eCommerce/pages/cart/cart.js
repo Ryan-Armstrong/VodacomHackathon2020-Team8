@@ -1,58 +1,65 @@
 const app = getApp();
 
 Page({
-  data:{
+  data: {
     swipeIndex: null,
+    list: [],
+    total: 0,
   },
-
   onLoad(query) {
-    // Page load
-    console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
-    this.setData({cartItems:app.data.cartItems});
+    this.init();
+  },
+  init(){
+    const newList = app.cart.map((item, index) => {
+      return {...item, right: [{ type: "delete", text: "  " }]}
+    })
+    const count = newList.length;
+    let total = 0;
+    for(let i = 0; i < count; i++){
+      total += (newList[i].price * newList[i].quantity);
+    }
+    this.setData({list: [...newList], total});
     this.setData({cartHeader:app.data.cartHeader});
-    console.log("bla");
-    this.calculateCart();
-      },
-  onReady() {
-    // Page loading is complete
   },
-  onShow() {
-    this.setData({cartItems:app.data.cartItems});
-    this.setData({cartHeader:app.data.cartHeader});
-    this.calculateCart();
-    // Page display
-  },
-  onHide() {
-    // Page hidden
-  },
-  onUnload() {
-    // Page is closed
-  },
-  onTitleClick() {
-    // Title clicked
-  },
-  onPullDownRefresh() {
-    // Page is pulled down
-  },
-  onReachBottom() {
-    // Page is pulled to the bottom
-  },
-  onShareAppMessage() {
-    // Back to custom sharing information
-    return {
-      title: 'My App',
-      desc: 'My App description',
-      path: 'pages/index/index',
-    };
-  },
+  onRightItemClick(e) {
+    const { type } = e.detail;
+    const item = this.data.list[e.index];
+    my.confirm({
+      title: "",
+      content: `Are you sure you want to remove ${item.title} from your cart?`,
+      confirmButtonText: "Confirm",
+      cancelButtonText: "Cancel",
+      success: result => {
+        const { list } = this.data;
+        if (result.confirm) {
+          if (type === "delete") {
+            app.removeFromCart(e.index);
+            this.init();
+          }
 
+          my.showToast({
+            content: `${item.title} removed from cart`
+          });
+          e.done();
+        } else {
+        }
+      }
+    });
+  },
+  onItemClick(e) {
+  },
+  onSwipeStart(e) {
+    this.setData({
+      swipeIndex: e.index
+    });
+  },
   calculateCart()
   {
     //var index = 0;
     console.log("Calculating Cart");
-    //console.log(this.data.cartItems.length);
-    this.data.cartHeader.TotalItems = this.data.cartItems.length;
-    var itemcount = this.data.cartItems.length;
+    //console.log(this.cart);
+    this.data.cartHeader.TotalItems = this.cart.length;
+    var itemcount = this.cart;
     var index =0;
     var itemprice=0;
     var totalPriceCalc=0;
@@ -60,9 +67,9 @@ Page({
 
     for (index; index < itemcount; index++)
       {
-        itemprice = (this.data.cartItems[index].productPrice * this.data.cartItems[index].productQuantity);
+        itemprice = (this.cart[index].productPrice * this.cart[index].productQuantity);
         totalPriceCalc = totalPriceCalc + itemprice;
-        totalQuantity = totalQuantity + this.data.cartItems[index].productQuantity;
+        totalQuantity = totalQuantity + this.cart[index].productQuantity;
       }
       console.log(totalPriceCalc);
       app.data.cartHeader.TotalItems = itemcount;
@@ -71,27 +78,28 @@ Page({
       app.data.cartHeader.DateCreated = Date.now();
       this.setData({cartHeader: app.data.cartHeader});
   },
- 
-  Checkout(){
+  handleStartShopping(){
+    my.redirectTo({
+      url: '../list/list'
+    });
+  },
+  checkout(){
     console.log("checking out");
     this.calculateCart();
     my.navigateTo({
       url: '../orderConfirmation/orderConfirmation'
     });
   },
-
-  onRightItemClick(e) {
-    console.log("Swipe Right");
+  increase(e){
+    app.increaseQuantity(e.target.dataset.item);
+    this.init();
   },
-
-  onSwipeStart(e) {
-    this.setData({swipeIndex: e.index,});
-  },
-
-  cartItemClick(e){
-  console.log(e);
-  app.data.cartItems[e.index].productQuantity++;
-  this.calculateCart(); 
-  this.setData({cartItems:app.data.cartItems});
+  decrease(e){
+    const index = e.target.dataset.item;
+    const quantity = app.cart[index].quantity;
+    if(quantity > 1){
+      app.decreaseQuantity(index);
+      this.init();
+    }
   },
 });

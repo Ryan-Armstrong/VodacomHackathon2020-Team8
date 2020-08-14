@@ -4,8 +4,8 @@
   background-repeat: no-repeat;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
-  height: 400rpx;
-  padding-top: 100rpx;
+  height: 500rpx;
+  padding-top: 200rpx;
   display: block;
   margin-bottom: 0.5rem; }
   .banner .am-search {
