@@ -1,0 +1,18 @@
+<view>
+  <list>
+    <view a:for="{{OrderList}}" key="{{item.OrderID}}">
+      <list-item>
+        <view>
+          ({{item.OrderID}}) Date: {{item.DateCreated}}
+        </View>
+        <view>
+          Items: {{item.TotalQuantity}}, Price: {{item.TotalPrice}}
+        </view>
+        <view slot="extra">
+          {{item.OrderStatus}} 
+        </view>
+      </list-item>
+    </view>
+  </list>
+  <button size="default" type="primary" onTap="goHome">Home</button>
+</view>

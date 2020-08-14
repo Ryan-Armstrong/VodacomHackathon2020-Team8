@@ -6,25 +6,25 @@ App({
       CustomerPaymentMethods: [
         {
           PaymentMethodTitle: "Card 1",
-          PaymentMethodType: "CreditCard"
+          PaymentMethodType: "CreditCard",
         },
         {
           PaymentMethodTitle: "Card 2",
-          PaymentMethodType: "CreditCard"
+          PaymentMethodType: "CreditCard",
         },
         {
           PaymentMethodTitle: "VodaCredit Account",
-          PaymentMethodType: "VodaCredit"
-        }
+          PaymentMethodType: "VodaCredit",
+        },
       ],
       CustomerAddresses: [
         {
-          AddressTitle: "Home Address"
+          AddressTitle: "Home Address",
         },
         {
-          AddressTitle: "Work Address"
-        }
-      ]
+          AddressTitle: "Work Address",
+        },
+      ],
     },
 
     cartHeader: {
@@ -35,7 +35,7 @@ App({
       DateCreated: "",
       TotalItems: 0,
       TotalPrice: 0,
-      TotalQuantity: 0
+      TotalQuantity: 0,
     },
     //create fake cart
     Orders: [
@@ -47,9 +47,37 @@ App({
         DateCreated: Date.now(),
         TotalItems: 1,
         TotalPrice: 998,
-        TotalQuantity: 2
-      }
-    ]
+        TotalQuantity: 2,
+        OrderStatus: "Complete",
+      },
+    ],
+
+    customerData: {
+      CustomerID: "Cust123",
+      CustomerName: "UninitialisedCustomerName",
+      CustomerPaymentMethods: [
+        {
+          PaymentMethodTitle: "Card 1",
+          PaymentMethodType: "CreditCard",
+        },
+        {
+          PaymentMethodTitle: "Card 2",
+          PaymentMethodType: "CreditCard",
+        },
+        {
+          PaymentMethodTitle: "VodaCredit Account",
+          PaymentMethodType: "VodaCredit",
+        },
+      ],
+      CustomerAddresses: [
+        {
+          AddressTitle: "Home Address",
+        },
+        {
+          AddressTitle: "Work Address",
+        },
+      ],
+    },
   },
 
   onLaunch(options) {
@@ -61,7 +89,7 @@ App({
   },
   addToCart(product) {
     let newItem = true;
-    const newCart = this.cart.map(item => {
+    const newCart = this.cart.map((item) => {
       if (product.sku === item.sku) {
         item.quantity++;
         newItem = false;
@@ -76,10 +104,10 @@ App({
         imageUrl: product.image.url,
         type: product.type_id,
         quantity: 1,
-        price: product.price_range.minimum_price.regular_price.value
+        price: product.price_range.minimum_price.regular_price.value,
       });
       my.showToast({
-        content: `${product.name} added to cart`
+        content: `${product.name} added to cart`,
       });
     }
   },
@@ -96,7 +124,7 @@ App({
     this.cart[index].quantity++;
   },
   appData: {
-    categories: []
+    categories: [],
   },
   cart: [],
   api: {
@@ -104,8 +132,8 @@ App({
       "https://integration-5ojmyuq-mgr5bk4tqgnlo.eu-5.magentosite.cloud/graphql",
     headers: {
       "Authorization-GraphQL": "Bearer xzbwcatpzav7ojwe1uahk6pu80siwlkd",
-      Store: "MainStoreView"
-    }
+      Store: "MainStoreView",
+    },
   },
   navItems: [
     {
@@ -115,8 +143,8 @@ App({
       icon: "icon-store-front",
       pill: {
         counter: 0,
-        show: false
-      }
+        show: false,
+      },
     },
     {
       id: "cart",
@@ -125,8 +153,8 @@ App({
       icon: "icon-shopping-cart",
       pill: {
         counter: 0,
-        show: false
-      }
+        show: false,
+      },
     },
     {
       id: "bookings",
@@ -135,8 +163,8 @@ App({
       icon: "icon-calendar",
       pill: {
         counter: 0,
-        show: false
-      }
+        show: false,
+      },
     },
     {
       id: "orders",
@@ -145,8 +173,8 @@ App({
       icon: "icon-cube",
       pill: {
         counter: 0,
-        show: false
-      }
-    }
-  ]
+        show: false,
+      },
+    },
+  ],
 });

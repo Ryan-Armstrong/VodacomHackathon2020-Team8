@@ -4,7 +4,8 @@
     "pages/list/list",
     "pages/cart/cart",
     "pages/checkout/checkout",
-    "pages/orderConfirmation/orderConfirmation" 
+    "pages/orderConfirmation/orderConfirmation",
+    "pages/Orders/Orders"
   ],
   "window": {
     "defaultTitle": "My App"
