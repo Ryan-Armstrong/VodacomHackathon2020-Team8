@@ -1,10 +1,8 @@
 {
-  "defaultTitle": "My Cart",
+  "defaultTitle": "SwipeAction",
   "usingComponents": {
     "list": "mini-antui/es/list/index",
     "list-item": "mini-antui/es/list/list-item/index",
-    "swipe-action": "mini-antui/es/swipe-action/index",
-    "popover": "mini-antui/es/popover/index",
-    "popover-item": "mini-antui/es/popover/popover-item/index"
+    "swipe-action": "mini-antui/es/swipe-action/index"
   }
 }

@@ -16,8 +16,8 @@ Component({
     handleTap(e) {
       // this.setData({ x: this.data.x + 1 }); // Can use setData to change internal attribute
       console.log("tap event", e);
-      my.redirectTo({
-        url: e.target.dataset.navId
+      my.navigateTo({
+        url: e.target.dataset.path
       });
     }
   }

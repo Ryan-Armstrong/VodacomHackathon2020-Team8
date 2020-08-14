@@ -37,81 +37,7 @@ App({
       TotalPrice: 0,
       TotalQuantity: 0
     },
-
     //create fake cart
-    cartItems: [
-      {
-        productSku: "Product1SKU",
-        productTitle: "Product Title 1",
-        productDescription: "This is a temporary description for Product 1",
-        productImageUrl:
-          "https://integration-5ojmyuq-mgr5bk4tqgnlo.eu-5.magentosite.cloud/media/catalog/product/cache/f9f5b1926d03c6b3fb82c0014bb23c4b/b/o/bob.jpg",
-        productType: "Simple",
-        productQuantity: 1,
-        productPrice: 200
-      },
-      {
-        productSku: "Product2SKU",
-        productTitle: "Product Title 2",
-        productDescription: "This is a temporary description for Product 2",
-        productImageUrl:
-          "https://integration-5ojmyuq-mgr5bk4tqgnlo.eu-5.magentosite.cloud/media/catalog/product/cache/f9f5b1926d03c6b3fb82c0014bb23c4b/b/o/bob.jpg",
-        productType: "Simple",
-        productQuantity: 2,
-        productPrice: 400
-      },
-      {
-        productSku: "Product3SKU",
-        productTitle: "Product Title 3",
-        productDescription: "This is a temporary description for Product 3",
-        productImageUrl:
-          "https://integration-5ojmyuq-mgr5bk4tqgnlo.eu-5.magentosite.cloud/media/catalog/product/cache/f9f5b1926d03c6b3fb82c0014bb23c4b/b/o/bob.jpg",
-        productType: "Simple",
-        productQuantity: 10,
-        productPrice: 50
-      },
-      {
-        productSku: "Product4SKU",
-        productTitle: "Product Title 4",
-        productDescription: "This is a temporary description for Product 3",
-        productImageUrl:
-          "https://integration-5ojmyuq-mgr5bk4tqgnlo.eu-5.magentosite.cloud/media/catalog/product/cache/f9f5b1926d03c6b3fb82c0014bb23c4b/b/o/bob.jpg",
-        productType: "Simple",
-        productQuantity: 5,
-        productPrice: 400
-      },
-      {
-        productSku: "Product5SKU",
-        productTitle: "Product Title 5",
-        productDescription: "This is a temporary description for Product 5",
-        productImageUrl:
-          "https://integration-5ojmyuq-mgr5bk4tqgnlo.eu-5.magentosite.cloud/media/catalog/product/cache/f9f5b1926d03c6b3fb82c0014bb23c4b/b/o/bob.jpg",
-        productType: "Simple",
-        productQuantity: 3,
-        productPrice: 200
-      },
-      {
-        productSku: "Product6SKU",
-        productTitle: "Product Title 6",
-        productDescription: "This is a temporary description for Product 6",
-        productImageUrl:
-          "https://integration-5ojmyuq-mgr5bk4tqgnlo.eu-5.magentosite.cloud/media/catalog/product/cache/f9f5b1926d03c6b3fb82c0014bb23c4b/b/o/bob.jpg",
-        productType: "Simple",
-        productQuantity: 1,
-        productPrice: 50000
-      },
-      {
-        productSku: "Product7SKU",
-        productTitle: "Product Title 7",
-        productDescription: "This is a temporary description for Product 7",
-        productImageUrl:
-          "https://integration-5ojmyuq-mgr5bk4tqgnlo.eu-5.magentosite.cloud/media/catalog/product/cache/f9f5b1926d03c6b3fb82c0014bb23c4b/b/o/bob.jpg",
-        productType: "Simple",
-        productQuantity: 1,
-        productPrice: 10
-      }
-    ],
-
     Orders: [
       {
         OrderID: "1",
@@ -133,14 +59,46 @@ App({
   onShow(options) {
     // Reopened by scheme from the background
   },
-
-  addToCart(newitem) {
-    //add item to the cart
-    //recalculate cart
+  addToCart(product) {
+    let newItem = true;
+    const newCart = this.cart.map(item => {
+      if (product.sku === item.sku) {
+        item.quantity++;
+        newItem = false;
+      }
+      return item;
+    });
+    if (newItem) {
+      this.cart.push({
+        sku: product.sku,
+        title: product.name,
+        description: product.description.html,
+        imageUrl: product.image.url,
+        type: product.type_id,
+        quantity: 1,
+        price: product.price_range.minimum_price.regular_price.value
+      });
+      my.showToast({
+        content: `${product.name} added to cart`
+      });
+    }
+  },
+  removeFromCart(index) {
+    this.cart.splice(index, 1);
+  },
+  decreaseQuantity(index) {
+    const quantity = this.cart[index].quantity;
+    if (quantity > 1) {
+      this.cart[index].quantity--;
+    }
+  },
+  increaseQuantity(index) {
+    this.cart[index].quantity++;
   },
   appData: {
     categories: []
   },
+  cart: [],
   api: {
     url:
       "https://integration-5ojmyuq-mgr5bk4tqgnlo.eu-5.magentosite.cloud/graphql",

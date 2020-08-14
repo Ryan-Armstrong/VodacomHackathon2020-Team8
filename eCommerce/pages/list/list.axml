@@ -6,7 +6,7 @@
 <view class="list">
   <view class="container">
     <view class="row">
-      <view class="col-6 wrapper" a:for="{{productList}}" onTap="handleProductTap" data-product-id="{{item.sku}}">
+      <view class="col-6 wrapper" a:for="{{productList}}" onTap="handleProductTap" data-product="{{item}}">
         <view class="item">
           <image mode="aspectFill" class="item-image" src="{{item.image.url}}"/>
           <view class="item-copy">

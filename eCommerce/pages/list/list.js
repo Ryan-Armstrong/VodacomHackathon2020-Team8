@@ -7,6 +7,8 @@ Page({
     isLoading: false,
     toggleText: "Show more",
     navItems: [],
+    cartTotal: 0,
+    bookingTotal: 0,
   },
   onLoad(query) {
     // Page load
@@ -34,6 +36,9 @@ Page({
       type_id,
       name,
       url_key,
+       description{ 
+        html 
+      },
       image { 
         url 
         label 
@@ -127,5 +132,11 @@ Page({
     my.alert({
       content: value
     });
+  },
+  handleProductTap(e){
+    const product = e.target.dataset.product;
+    app.addToCart(product);
+    this.setData({cartTotal: app.cart.length})
+    console.log("cart items", this.data.cartTotal);
   }
 });
