@@ -9,6 +9,7 @@ Page({
   onLoad(query) {
     this.init();
   },
+
   init(){
     const newList = app.cart.map((item, index) => {
       return {...item, right: [{ type: "delete", text: "  " }]}
@@ -58,8 +59,8 @@ Page({
     //var index = 0;
     console.log("Calculating Cart");
     //console.log(this.cart);
-    this.data.cartHeader.TotalItems = this.cart.length;
-    var itemcount = this.cart;
+    this.data.cartHeader.TotalItems = this.data.list.length;
+    var itemcount = this.data.list.length;
     var index =0;
     var itemprice=0;
     var totalPriceCalc=0;
@@ -67,9 +68,9 @@ Page({
 
     for (index; index < itemcount; index++)
       {
-        itemprice = (this.cart[index].productPrice * this.cart[index].productQuantity);
+        itemprice = (this.data.list[index].price * this.data.list[index].quantity);
         totalPriceCalc = totalPriceCalc + itemprice;
-        totalQuantity = totalQuantity + this.cart[index].productQuantity;
+        totalQuantity = totalQuantity + this.data.list[index].quantity;
       }
       console.log(totalPriceCalc);
       app.data.cartHeader.TotalItems = itemcount;
