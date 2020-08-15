@@ -14,5 +14,5 @@
       </list-item>
     </view>
   </list>
-  <button size="default" type="primary" onTap="goHome">Home</button>
 </view>
+<app-nav navItems="{{navItems}}" current="orders"></app-nav>

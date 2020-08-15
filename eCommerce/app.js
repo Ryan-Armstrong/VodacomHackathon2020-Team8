@@ -138,7 +138,7 @@ App({
   navItems: [
     {
       id: "home",
-      active: true,
+      active: false,
       path: "../index/index",
       icon: "icon-store-front",
       pill: {
@@ -169,7 +169,7 @@ App({
     {
       id: "orders",
       active: false,
-      path: "",
+      path: "../orders/orders",
       icon: "icon-cube",
       pill: {
         counter: 0,

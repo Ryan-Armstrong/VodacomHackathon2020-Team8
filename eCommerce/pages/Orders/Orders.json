@@ -1,6 +1,7 @@
 {"defaultTitle": "Order History",
  "usingComponents": {
     "list": "mini-antui/es/list/index",
-    "list-item": "mini-antui/es/list/list-item/index"
+    "list-item": "mini-antui/es/list/list-item/index",
+    "app-nav": "/components/nav/index"
  }
 }

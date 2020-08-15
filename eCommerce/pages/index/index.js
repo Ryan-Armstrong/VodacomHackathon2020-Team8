@@ -12,7 +12,10 @@ Page({
   onLoad(query) {
     // Page load
     console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
-    this.setData({navItems: app.navItems})
+    const navItems = [...app.navItems];
+    navItems[0].active = true;
+    this.setData({navItems})
+    console.log(navItems)
     my.showLoading({
       content: "loading..."
     });

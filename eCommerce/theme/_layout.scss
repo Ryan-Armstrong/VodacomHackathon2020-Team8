@@ -26,3 +26,17 @@
   background: linear-gradient(-45deg, #ee7752, #e73c7e);
   color:#fff;
 }
+
+.section-title{
+  font-weight: bold;
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+  display: block;
+}
+
+.section-sub-heading{
+  color:$black30;
+  font-size:24rpx;
+  display: block;
+  margin-bottom: 30rpx;
+}

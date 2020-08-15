@@ -1,9 +1,15 @@
 const app = getApp();
 
 Page({
-  data: {},
+  data: {
+    navItems: []
+  },
   onLoad() {
+    const navItems = [...app.navItems];
+    navItems[3].active = true;
+    this.setData({navItems})
     this.setData({OrderList:app.data.Orders});
+    console.log(navItems)
   },
   goHome(){
     my.redirectTo({

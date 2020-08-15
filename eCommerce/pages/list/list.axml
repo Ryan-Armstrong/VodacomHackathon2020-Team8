@@ -11,6 +11,10 @@
     </view>
   </view>
 </view>
+<view class="info">
+<text class="icon-information-solid"></text>
+<text class="info-text">Swipe left to remove item from cart</text>
+</view>
 <view class="list">
   <view class="container">
     <view class="row">

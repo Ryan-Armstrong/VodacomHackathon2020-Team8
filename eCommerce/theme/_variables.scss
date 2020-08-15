@@ -7,3 +7,15 @@ $black30: #666;
 $primary: #0072ff;
 $secondary: #00c6ff;
 $primary-bg: linear-gradient(-45deg, #00c6ff, #0072ff);
+
+//spacing
+$spacing: (
+  xxs: 5rpx,
+  xs: 10rpx,
+  ss: 15rpx,
+  s: 20rpx,
+  m: 25rpx,
+  l: 30rpx,
+  xl: 35rpx,
+  xxl: 40rpx
+);

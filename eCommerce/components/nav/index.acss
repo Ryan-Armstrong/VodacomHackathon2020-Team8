@@ -11,10 +11,10 @@
   .app-nav-icon {
     font-size: 40rpx;
     color: #666; }
-  .app-nav-icon-active {
+  .app-nav-icon-active .app-nav-icon {
     color: #0072ff; }
-    .app-nav-icon-active .pill {
-      background-color: #0072ff; }
+  .app-nav-icon-active .pill {
+    background-color: #0072ff; }
 
 .icon-wrapper {
   position: relative; }

@@ -2,7 +2,7 @@
   <search-bar value="{{value}}" placeholder="What are you looking for? " onInput="handleInput" onClear="handleClear" onFocus="handleFocus" onBlur="handleBlur" onCancel="handleCancel" onSubmit="handleSubmit" showCancelButton="{{false}}" />
 </view>
 <view class="section">
-  <text class="title">Categories</text>
+  <text class="section-title">Categories</text>
   <view class="categories">
     <view class="item" a:for="{{categories}}" onTap="handleCategoryTap" data-category-id="{{item.id}}">
       <image mode="scaleToFill" class="item-icon" src="{{item.image}}"/>
@@ -12,4 +12,4 @@
     </view>
   </view>
 </view>
-<app-nav navItems="{{navItems}}"></app-nav>
+<app-nav navItems="{{navItems}}" current="home"></app-nav>
