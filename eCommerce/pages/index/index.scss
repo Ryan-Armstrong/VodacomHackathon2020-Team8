@@ -7,8 +7,9 @@
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
   height: 500rpx;
-  padding-top: 200rpx;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 0.5rem;
 
   .am-search{
@@ -20,6 +21,16 @@
       height: 30px;
       line-height: 30px;
     }
+  }
+
+  .logo{
+    color: $white100;
+    display: block;
+    font-size:1rem;
+    font-weight:bold;
+    margin-top: auto;
+    margin-bottom: 20rpx;
+    text-shadow: 2px 2px 4px $black100;
   }
 }
 

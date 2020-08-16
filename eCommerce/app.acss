@@ -7,10 +7,17 @@
   font-style: normal;
   font-display: block; }
 
+@font-face {
+  font-family: 'baloo-regular';
+  src: url("/assets/fonts/BalooTamma2-Regular.ttf"); }
+
+@font-face {
+  font-family: 'baloo-bold';
+  src: url("/assets/fonts/BalooTamma2-Bold.ttf"); }
+
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icons' !important;
-  speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -1881,4 +1888,5 @@ template {
 page {
   display: flex;
   flex-direction: column;
-  background-color: #f4f8fe; }
+  background-color: #f4f8fe;
+  font-family: "baloo-regular"; }

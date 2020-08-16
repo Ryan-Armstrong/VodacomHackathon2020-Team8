@@ -1,16 +1,20 @@
-<view>
+<view class="section">
   <list>
     <view a:for="{{OrderList}}" key="{{item.OrderID}}">
-      <list-item>
-        <view>
-          ({{item.OrderID}}) Date: {{item.DateCreated}}
-        </View>
-        <view>
-          Items: {{item.TotalQuantity}}, Price: {{item.TotalPrice}}
+      <list-item class="list-item effect6">
+        <view class="description">
+          <text class="order-number">
+          Order #{{item.DateCreated}}
+          </text>
+          <view class="meta-data">
+            <text class="data">Items: {{item.TotalQuantity}}</text>
+            <text class="data">Price: {{item.TotalPrice}}</text>
+          </view>
+          <view class="meta-data">
+            <text class="data">Ordered: {{item.DateCreated}}</text>
+          </view>
         </view>
-        <view slot="extra">
-          {{item.OrderStatus}} 
-        </view>
+        <text class="icon-cheveron-right"></text>
       </list-item>
     </view>
   </list>

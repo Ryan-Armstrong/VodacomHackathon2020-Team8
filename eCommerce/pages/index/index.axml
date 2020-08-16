@@ -1,5 +1,6 @@
 <view class="banner">
-  <search-bar value="{{value}}" placeholder="What are you looking for? " onInput="handleInput" onClear="handleClear" onFocus="handleFocus" onBlur="handleBlur" onCancel="handleCancel" onSubmit="handleSubmit" showCancelButton="{{false}}" />
+  <text class="logo">EaziGym</text>
+  <!-- <search-bar value="{{value}}" placeholder="What are you looking for? " onInput="handleInput" onClear="handleClear" onFocus="handleFocus" onBlur="handleBlur" onCancel="handleCancel" onSubmit="handleSubmit" showCancelButton="{{false}}" /> -->
 </view>
 <view class="section">
   <text class="section-title">Categories</text>
