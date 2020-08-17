@@ -2,13 +2,13 @@ const app = getApp();
 
 Page({
   data: {
+    order: null,
     navItems: []
   },
-  onLoad() {
+  onLoad(query) {
     const navItems = [...app.navItems];
     navItems[3].active = true;
-    this.setData({navItems})
-    this.setData({orderList:app.orders});
-    console.log(navItems)
+    let id = query.id || 0;
+    this.setData({navItems,order: app.orders[id]})
   }
 });

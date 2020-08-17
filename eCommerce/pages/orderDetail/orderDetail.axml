@@ -1,20 +1,23 @@
 <view class="section">
+  <view class="order-meta">
+    <text class="order-number">Order #{{order.id}}</text>
+    <text class="order-date">Ordered: {{order.dateCreated}}</text>
+  </view>
   <list>
-    <view a:for="{{orderList}}" key="{{item.id}}">
+    <view a:for="{{order.items}}" key="{{item.id}}">
       <list-item class="list-item">
         <view class="description">
           <text class="order-number">
-          Order #{{item.id}}
+          Order #{{item.dateCreated}}
           </text>
           <view class="meta-data">
             <text class="data">Items: {{item.totalQuantity}}</text>
-            <text class="data">Price: R{{item.totalPrice}}</text>
+            <text class="data">Price: {{item.totalPrice}}</text>
           </view>
           <view class="meta-data">
             <text class="data">Ordered: {{item.dateCreated}}</text>
           </view>
         </view>
-        <text class="icon-cheveron-right"></text>
       </list-item>
     </view>
   </list>

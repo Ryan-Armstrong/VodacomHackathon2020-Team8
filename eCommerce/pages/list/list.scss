@@ -95,7 +95,18 @@
       border-top-right-radius: 20rpx;
     }
   }
+  
 }
+.item-action{
+    background: $primary-bg;
+    border-bottom-left-radius: 20rpx;
+    border-bottom-right-radius: 20rpx;
+    color:$white100;
+    text-align:center;
+
+      line-height:40rpx;
+      height:40rpx;
+  }
 
 page{
   position: relative;

@@ -43,30 +43,31 @@ Page({
 
   placeOrder() {
     console.log("Place Order");
-    console.log(app.data.Orders.length);
+    console.log(app.orders.length);
 
-    var StatusString = "Shipping";
+    let StatusString = "Shipping";
     if ((app.data.cartHeader.DeliveryTypeSelected = "CollectInStore")) {
       StatusString = "Collecting";
     }
 
     //create the new order
-    var newOrderNum =
-      app.data.customerData.CustomerID + "-" + (app.data.Orders.length + 1);
-    var newJSON = {
-      OrderID: newOrderNum,
-      PaymentMethodSelected: app.data.cartHeader.PaymentMethodSelected,
-      DeliveryTypeSelected: app.data.cartHeader.DeliveryTypeSelected,
-      DeliveryAddressTitle: app.data.cartHeader.DeliveryAddressTitle,
-      DateCreated: app.data.cartHeader.DateCreated,
-      TotalItems: app.data.cartHeader.TotalItems,
-      TotalPrice: app.data.cartHeader.TotalPrice,
-      TotalQuantity: app.data.cartHeader.TotalQuantity,
-      OrderStatus: StatusString
+    let newOrderNum = app.data.cartHeader.DateCreated;
+    let orderDate = new Date(app.data.cartHeader.DateCreated);
+    const newJSON = {
+      id: newOrderNum,
+      paymentMethodSelected: app.data.cartHeader.PaymentMethodSelected,
+      deliveryTypeSelected: app.data.cartHeader.DeliveryTypeSelected,
+      deliveryAddressTitle: app.data.cartHeader.DeliveryAddressTitle,
+      dateCreated: orderDate.toDateString(),
+      totalItems: app.data.cartHeader.TotalItems,
+      totalPrice: app.data.cartHeader.TotalPrice,
+      totalQuantity: app.data.cartHeader.TotalQuantity,
+      items: this.data.list,
+      status: StatusString
     };
 
     console.log(newJSON);
-    app.data.Orders.push(newJSON);
+    app.orders.push(newJSON);
 
     //clean out the cart header
     app.data.cartHeader.CartID = "";
@@ -80,8 +81,7 @@ Page({
     this.setData({ cartHeader: app.data.cartHeader });
 
     //clean out the cart items
-    app.data.cartItems = {};
-
+    app.clearCart();
     //Go back to homepage
     my.redirectTo({
       url: "../orders/orders"

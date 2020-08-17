@@ -1,0 +1,38 @@
+<view class="profile-pic">
+  <image mode="aspectFill" class="image" src="{{product.image.url}}"/>
+</view>
+<view class="section">
+  <view class="copy">
+    <text class="title">{{product.name}}</text>
+    <text class="description">{{product.short_description.html}}</text>
+  </view>
+</view>
+<view class="section" a:if="{{product.type_id === 'virtual'}}">
+  <text class="section-title mt-xxl">Booking details</text>
+  <view class="copy">
+    <view class="schedule">
+      <text class="schedule-icon icon-calendar"></text>
+      <text class="schedule-info">{{bookingDate}}</text>
+    </view>
+  </view>
+  <view class="copy mt-xxl">
+    <view class="schedule">
+      <text class="schedule-icon icon-time"></text>
+      <text class="schedule-info">{{bookingTime}}</text>
+    </view>
+  </view>
+  <view class="copy mt-xxl">
+    <view class="schedule">
+      <text class="schedule-icon icon-pin"></text>
+      <text class="schedule-info">Vodaworld, 082 Vodacom Boulevard, Voda Valley, Erand Gardens, Ext 11, Midrand, Gauteng, South Africa</text>
+    </view>
+  </view>
+  <!--<calendar type="single" /> -->
+</view>
+<view class="footer">
+  <view class="total">
+  <text class="amount">R{{product.price_range.minimum_price.final_price.value}}</text>
+  <button class="btn-primary" onTap="handleProductTap">{{(product.type_id === "virtual") ? "book now" : "add to cart"}}</button>
+</view>
+</view>
+<app-nav navItems="{{navItems}}" current="home"></app-nav>

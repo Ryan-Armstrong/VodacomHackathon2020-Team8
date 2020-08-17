@@ -38,20 +38,6 @@ App({
       TotalQuantity: 0,
     },
     //create fake cart
-    Orders: [
-      {
-        OrderID: "1",
-        PaymentMethodSelected: "Credit Card 1",
-        DeliveryTypeSelected: "Collect In Store",
-        DeliveryAddressTitle: "",
-        DateCreated: Date.now(),
-        TotalItems: 1,
-        TotalPrice: 998,
-        TotalQuantity: 2,
-        OrderStatus: "Complete",
-      },
-    ],
-
     customerData: {
       CustomerID: "Cust123",
       CustomerName: "UninitialisedCustomerName",
@@ -100,11 +86,11 @@ App({
       this.cart.push({
         sku: product.sku,
         title: product.name,
-        description: product.description.html,
+        description: product.short_description.html,
         imageUrl: product.image.url,
         type: product.type_id,
         quantity: 1,
-        price: product.price_range.minimum_price.regular_price.value,
+        price: product.price_range.minimum_price.final_price.value,
       });
       this.navItems[1].pill.counter++;
       this.navItems[1].pill.show = true;
@@ -125,6 +111,11 @@ App({
   increaseQuantity(index) {
     this.cart[index].quantity++;
   },
+  clearCart(){
+    this.cart = [];
+    this.navItems[1].pill.counter = 0;
+    this.navItems[1].pill.show = false;
+  },
   categories: [],
   cart: [],
   api: {
@@ -135,6 +126,8 @@ App({
       Store: "MainStoreView",
     },
   },
+  orders: [],
+  selectedProduct: {},
   navItems: [
     {
       id: "home",

@@ -1,0 +1,53 @@
+.profile-pic {
+  width: 100%;
+  height: 250px; }
+  .profile-pic .image {
+    width: 100%;
+    border-bottom-left-radius: 40rpx;
+    border-bottom-right-radius: 40rpx; }
+
+.calender {
+  padding: 40rpx;
+  margin: 20rpx 0 80px; }
+
+.copy {
+  background-color: #fff;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column; }
+  .copy .title {
+    font-weight: bold;
+    font-size: 36rpx;
+    color: #333; }
+  .copy .description {
+    color: #666;
+    padding: 40rpx 0; }
+  .copy .schedule {
+    display: flex;
+    align-items: center; }
+    .copy .schedule-icon {
+      font-size: 42rpx;
+      margin-right: 40rpx; }
+
+.footer {
+  -webkit-box-shadow: 0px -1px 20px -5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px -1px 20px -5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px -1px 20px -5px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  padding: 10rpx 40rpx;
+  width: 100%;
+  background-color: #fff; }
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .total .amount {
+    font-weight: bold;
+    font-size: 32rpx; }
+  .total .btn-primary {
+    padding: 0 30rpx; }

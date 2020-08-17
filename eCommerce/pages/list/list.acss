@@ -77,5 +77,14 @@
       border-top-left-radius: 20rpx;
       border-top-right-radius: 20rpx; }
 
+.item-action {
+  background: linear-gradient(-45deg, #00c6ff, #0072ff);
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  height: 40rpx; }
+
 page {
   position: relative; }
