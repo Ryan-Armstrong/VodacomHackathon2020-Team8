@@ -33,7 +33,7 @@ Page({
       type_id,
       name,
       url_key,
-       description{ 
+       short_description{ 
         html 
       },
       image { 
@@ -42,7 +42,7 @@ Page({
       },
       price_range {
         minimum_price {
-          regular_price {
+          final_price {
             value
             currency
           }
@@ -143,10 +143,14 @@ Page({
   },
   handleProductTap(e) {
     const product = e.target.dataset.product;
-    app.addToCart(product);
-    this.setData({ cartTotal: app.cart.length, navItems: app.navItems });
-    console.log("cart items", this.data.cartTotal);
-    console.log("nav items", this.data.navItems);
+    // if (product.type_id !== "virtual") {
+    //   app.addToCart(product);
+    //   this.setData({ cartTotal: app.cart.length, navItems: app.navItems });
+    // }
+    app.selectedProduct = product;
+    my.navigateTo({
+      url: '../productDetail/productDetail'
+    });
   },
   handleCategoryTap(e) {
     console.log("category tap", e);

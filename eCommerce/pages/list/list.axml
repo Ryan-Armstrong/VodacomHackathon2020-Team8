@@ -23,9 +23,9 @@
           <image mode="aspectFill" class="item-image" src="{{item.image.url}}"/>
           <view class="item-copy">
             <text class="item-label">{{item.name}}</text>
-            <text class="item-price">R{{item.price_range.minimum_price.regular_price.value}}</text>
-            <view class="item-action">{{(item.type_id === "virtual") ? "book now" : "add to cart"}}</view>
+            <text class="item-price">R{{item.price_range.minimum_price.final_price.value}}</text>
           </view>
+           <view class="item-action">{{(item.type_id === "virtual") ? "book now" : "add to cart"}}</view>
         </view>
       </view>
     </view>
