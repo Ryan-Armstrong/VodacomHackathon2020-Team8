@@ -1,10 +1,13 @@
 @import 'fonts';
 @import 'layout';
+@import 'utils';
+@import 'lib/bootstrap/bootstrap-grid.scss';
 
 page {
   display: flex;
   flex-direction: column;
   background-color: rgb(244,248,254);
+  font-family: "baloo-regular";
 }
 
 

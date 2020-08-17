@@ -1,10 +1,11 @@
 <view class="banner">
-  <search-bar value="{{value}}" placeholder="What are you looking for? " onInput="handleInput" onClear="handleClear" onFocus="handleFocus" onBlur="handleBlur" onCancel="handleCancel" onSubmit="handleSubmit" showCancelButton="{{false}}" />
+  <text class="logo">EaziGym</text>
+  <!-- <search-bar value="{{value}}" placeholder="What are you looking for? " onInput="handleInput" onClear="handleClear" onFocus="handleFocus" onBlur="handleBlur" onCancel="handleCancel" onSubmit="handleSubmit" showCancelButton="{{false}}" /> -->
 </view>
 <view class="section">
-  <text class="title">Categories</text>
+  <text class="section-title">Categories</text>
   <view class="categories">
-    <view class="item" a:for="{{categories}}">
+    <view class="item" a:for="{{categories}}" onTap="handleCategoryTap" data-category-id="{{item.id}}">
       <image mode="scaleToFill" class="item-icon" src="{{item.image}}"/>
       <text class="item-label">{{item.name}}</text>
       <text class="item-count">({{item.products.total_count}})</text>
@@ -12,4 +13,4 @@
     </view>
   </view>
 </view>
-<app-nav></app-nav>
+<app-nav navItems="{{navItems}}" current="home"></app-nav>

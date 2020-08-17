@@ -6,11 +6,16 @@ Page({
     isLoading: false,
     toggleText: "Show more",
     categoriesCollapsed: false,
-    searchText: ""
+    searchText: "",
+    navItems: []
   },
   onLoad(query) {
     // Page load
     console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
+    const navItems = [...app.navItems];
+    navItems[0].active = true;
+    this.setData({navItems})
+    console.log(navItems)
     my.showLoading({
       content: "loading..."
     });
@@ -34,8 +39,8 @@ Page({
       },
       dataType: "json",
       success: ({ data }) => {
-        console.log("success", data);
         if (data.data.categoryList.length) {
+          app.categories = data.data.categoryList[0].children;
           this.setData({ categories: data.data.categoryList[0].children });
         }
       },
@@ -45,7 +50,6 @@ Page({
       },
       complete: function(res) {
         my.hideLoading();
-        console.log("completeccess", res);
       }
     });
   },
@@ -95,9 +99,10 @@ Page({
       value: ""
     });
   },
-  handleSubmit(value) {
-    my.alert({
-      content: value
-    });
+  handleCategoryTap(e) {
+    const categoryId = e.target.dataset.categoryId;
+    my.navigateTo({
+      url: `../list/list?id=${categoryId}`
+    })
   }
 });

@@ -1,0 +1,34 @@
+<view class="category" onTap="handleDropDownTap" data-category-id="{{category.id}}">
+  <view class="selected">
+    <image mode="scaleToFill" class="selected-icon" src="{{category.image}}"/>
+    <text class="selected-label">{{category.name}}</text>
+    <view class="icon-cheveron-down {{!hideDropDown ? 'rotate' : ''}}"></view>
+  </view>
+  <view class="dropdown {{(hideDropDown)?'hide-dropdown':''}}">
+    <view class="list-item {{(category.id === item.id) ? 'active' : ''}}" a:for="{{categories}}" onTap="handleCategoryTap" data-category="{{item}}">
+      <image mode="scaleToFill" class="list-item-icon" src="{{item.image}}"/>
+      <text class="list-item-label">{{item.name}}</text>
+    </view>
+  </view>
+</view>
+<view class="info">
+<text class="icon-information-solid"></text>
+<text class="info-text">Swipe left to remove item from cart</text>
+</view>
+<view class="list">
+  <view class="container">
+    <view class="row">
+      <view class="col-6 wrapper" a:for="{{productList}}" onTap="handleProductTap" data-product="{{item}}">
+        <view class="item">
+          <image mode="aspectFill" class="item-image" src="{{item.image.url}}"/>
+          <view class="item-copy">
+            <text class="item-label">{{item.name}}</text>
+            <text class="item-price">R{{item.price_range.minimum_price.regular_price.value}}</text>
+            <view class="item-action">{{(item.type_id === "virtual") ? "book now" : "add to cart"}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<app-nav navItems="{{navItems}}"></app-nav>

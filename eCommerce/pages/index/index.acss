@@ -4,9 +4,10 @@
   background-repeat: no-repeat;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
-  height: 400rpx;
-  padding-top: 100rpx;
-  display: block;
+  height: 500rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 0.5rem; }
   .banner .am-search {
     background-color: transparent; }
@@ -16,12 +17,14 @@
       color: #fff;
       height: 30px;
       line-height: 30px; }
-
-.title {
-  font-weight: bold;
-  font-size: 32rpx;
-  margin-bottom: 30rpx;
-  display: block; }
+  .banner .logo {
+    color: #fff;
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: 20rpx;
+    text-shadow: 2px 2px 4px #000; }
 
 .categories .item {
   background-color: #fff;

@@ -1,0 +1,122 @@
+@import '../../theme/variables';
+
+.selected, .list-item{
+  background-color: $white100;
+  display: flex;
+  width: 100%;
+  padding: 30rpx 30rpx;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+  z-index:1;
+  &-icon {
+    font-size:30rpx;
+    margin-right: 30rpx;
+  }
+  &-count {
+    color: $black30;
+    margin-right: 30rpx;
+  }
+  &-label {
+    margin-right: 15rpx;
+  }
+  &-total{
+    margin-left: auto;
+    color:$black60;
+    font-size:32rpx;
+    font-weight:bold;
+  }
+  .icon-cheveron-down {
+    margin-left: 30rpx;
+    transition: all 0.5s ease;
+  }
+  .rotate {
+    transform: rotate(180deg);
+  }
+}
+
+.list-item{
+  background-color: $white100;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 30rpx 30rpx;
+  border-bottom: 1px solid #ccc;
+  .total{
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    .label{
+      color:$black30;
+    }
+    .amount{
+      font-weight:bold;
+      color:$black60;
+    }
+  }
+}
+
+.dropdown{
+  background-color: $white100;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  transition: all 0.5s ease;
+  z-index:0;
+}
+
+.hide-dropdown{
+  transform: translateY(-15em);
+  height:0;
+}
+
+.summary {
+  color: $black80;
+  position: fixed;
+  width: 100%;
+  top:0;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  margin-bottom: 20rpx;
+}
+
+.section{
+  padding-top:120rpx;
+  padding-bottom:120rpx;
+}
+
+.radio-group{
+  flex-grow: 1;
+  overflow: auto;
+  border-radius: 20rpx;
+  border: 1px solid #ccc;
+}
+
+
+.radio-item{
+  padding: 30rpx;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  margin-bottom:0;
+  &:last-child{
+    border:none;
+  }
+}
+
+.radio {
+  width:40rpx;
+  height:40rpx;
+  padding:0;
+  margin:0;
+}
+
+.radio-text {
+  margin-left:30rpx;
+  width:90%;
+}
+.radio-checked{
+  background-color: $primary;
+  color:$white100;
+  font-weight: bold;
+}

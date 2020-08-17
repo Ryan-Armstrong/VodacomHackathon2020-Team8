@@ -1,35 +1,106 @@
+const app = getApp();
+
 Page({
+  data: {
+    swipeIndex: null,
+    list: [],
+    total: 0,
+  },
   onLoad(query) {
-    // Page load
-    console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
+    this.init();
   },
-  onReady() {
-    // Page loading is complete
+
+  init(){
+    const newList = app.cart.map((item, index) => {
+      return {...item, right: [{ type: "delete", text: "  " }]}
+    })
+    const count = newList.length;
+    let total = 0;
+    for(let i = 0; i < count; i++){
+      total += (newList[i].price * newList[i].quantity);
+    }
+    this.setData({list: [...newList], total});
+    this.setData({cartHeader:app.data.cartHeader});
   },
-  onShow() {
-    // Page display
+  onRightItemClick(e) {
+    const { type } = e.detail;
+    const item = this.data.list[e.index];
+    my.confirm({
+      title: "",
+      content: `Are you sure you want to remove ${item.title} from your cart?`,
+      confirmButtonText: "Confirm",
+      cancelButtonText: "Cancel",
+      success: result => {
+        const { list } = this.data;
+        if (result.confirm) {
+          if (type === "delete") {
+            app.removeFromCart(e.index);
+            this.init();
+          }
+
+          my.showToast({
+            content: `${item.title} removed from cart`
+          });
+          e.done();
+        } else {
+        }
+      }
+    });
   },
-  onHide() {
-    // Page hidden
+  onItemClick(e) {
   },
-  onUnload() {
-    // Page is closed
+  onSwipeStart(e) {
+    this.setData({
+      swipeIndex: e.index
+    });
   },
-  onTitleClick() {
-    // Title clicked
+  calculateCart()
+  {
+    //var index = 0;
+    console.log("Calculating Cart");
+    //console.log(this.cart);
+    this.data.cartHeader.TotalItems = this.data.list.length;
+    var itemcount = this.data.list.length;
+    var index =0;
+    var itemprice=0;
+    var totalPriceCalc=0;
+    var totalQuantity=0;
+
+    for (index; index < itemcount; index++)
+      {
+        itemprice = (this.data.list[index].price * this.data.list[index].quantity);
+        totalPriceCalc = totalPriceCalc + itemprice;
+        totalQuantity = totalQuantity + this.data.list[index].quantity;
+      }
+      console.log(totalPriceCalc);
+      app.data.cartHeader.TotalItems = itemcount;
+      app.data.cartHeader.TotalPrice = totalPriceCalc;
+      app.data.cartHeader.TotalQuantity = totalQuantity;
+      app.data.cartHeader.DateCreated = Date.now();
+      this.setData({cartHeader: app.data.cartHeader});
   },
-  onPullDownRefresh() {
-    // Page is pulled down
+  handleStartShopping(){
+    my.redirectTo({
+      url: '../list/list'
+    });
   },
-  onReachBottom() {
-    // Page is pulled to the bottom
+  checkout(){
+    console.log("checking out");
+    this.calculateCart();
+    my.navigateTo({
+      url: '../orderConfirmation/orderConfirmation'
+    });
   },
-  onShareAppMessage() {
-    // Back to custom sharing information
-    return {
-      title: 'My App',
-      desc: 'My App description',
-      path: 'pages/index/index',
-    };
+  increase(e){
+    app.increaseQuantity(e.target.dataset.item);
+    this.init();
+  },
+  decrease(e){
+    const index = e.target.dataset.item;
+    const quantity = app.cart[index].quantity;
+    if(quantity > 1){
+      app.decreaseQuantity(index);
+      this.init();
+    }
   },
 });

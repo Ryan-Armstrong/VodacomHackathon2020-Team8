@@ -1,3 +1,42 @@
+@import 'variables';
+
 .section {
   padding: 0 .25rem;
+}
+
+.btn-secondary{
+  background-color:rgb(201, 247, 244);
+  color:#333;
+  border:none;
+  border-radius:none;
+}
+
+.btn-secondary--disabled {
+  color:rgb(124, 124, 124);
+  background-color:rgb(201, 221, 220);
+}
+
+.btn-primary{
+  background: $primary-bg;
+  color:#fff;
+  border-radius:20rpx;
+  font-weight: bold
+}
+.btn-tertiary{
+  background: linear-gradient(-45deg, #ee7752, #e73c7e);
+  color:#fff;
+}
+
+.section-title{
+  font-weight: bold;
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+  display: block;
+}
+
+.section-sub-heading{
+  color:$black30;
+  font-size:24rpx;
+  display: block;
+  margin-bottom: 30rpx;
 }

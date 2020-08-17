@@ -1,0 +1,29 @@
+.list-item {
+  border-radius: 20rpx;
+  margin: 20rpx 0;
+  box-shadow: 0 2rpx 8rpx -2rpx rgba(0, 0, 0, 0.25); }
+  .list-item .am-list-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+
+.description {
+  display: flex;
+  flex-direction: column; }
+
+.order-number {
+  font-weight: bold; }
+
+.meta-data {
+  display: flex; }
+  .meta-data .data {
+    font-weight: 10rpx;
+    color: #666;
+    margin-right: 40rpx; }
+
+.status {
+  border-radius: 10rpx;
+  color: #fff;
+  background-color: #0072ff;
+  padding: 10rpx;
+  width: auto; }

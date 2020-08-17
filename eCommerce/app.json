@@ -1,8 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/checkout/checkout",
-    "pages/cart/cart"
+    "pages/orders/orders",
+    "pages/orderConfirmation/orderConfirmation",
+    "pages/list/list",
+    "pages/cart/cart",
+    "pages/checkout/checkout"
   ],
   "window": {
     "defaultTitle": "My App"

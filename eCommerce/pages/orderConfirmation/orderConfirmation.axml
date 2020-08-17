@@ -1,0 +1,59 @@
+<view class="summary" onTap="handleDropDownTap">
+  <view class="selected">
+    <view class="selected-icon icon-shopping-cart"></view>
+    <text class="selected-label">Order summary</text>
+    <text class="selected-total">R{{cartHeader.TotalPrice}}</text>
+    <view class="icon-cheveron-down {{!hideDropDown ? 'rotate' : ''}}"></view>
+  </view>
+  <view class="dropdown {{(hideDropDown)?'hide-dropdown':''}}">
+    <view class="list-item">
+      <view class="total mb-s">
+        <text class="label">Total Items in Cart:</text>
+        <text class="amount">{{cartHeader.TotalQuantity}}</text>
+      </view>
+      <view class="total">
+        <text class="label">Total Price:</text>
+        <text class="amount">R{{cartHeader.TotalPrice}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="section">
+  <text class="section-title">Payment</text>
+  <text class="section-sub-heading">All transactions are secure and encrypted.</text>
+  <view class="pb-xxl">
+    <radio-group class="radio-group" onChange="paymentRadioChange">
+      <label class="{{(paymentMethod === item.PaymentMethodTitle) ? 'radio-item radio-checked' : 'radio-item'}}" a:for="{{customerData.CustomerPaymentMethods}}">
+        <radio color="#ffffff" class="radio" value="{{item.PaymentMethodTitle}}"/>
+        <text class="radio-text">{{item.PaymentMethodTitle}}</text>
+        </radio>
+      </label>
+    </radio-group>
+  </view>
+  <text class="section-title mt-xxl">Select Delivery Type</text>
+  <view class="pb-xxl">
+    <radio-group class="radio-group" onChange="deliveryTypeRadioChange">
+      <label class="{{(deliveyType === 'CollectInStore') ? 'radio-item radio-checked' : 'radio-item'}}">
+        <radio color="#ffffff" class="radio" value="CollectInStore"/>
+        <text class="radio-text">Collect in Store</text>
+      </label>
+      <label class="{{(deliveyType === 'Deliver') ? 'radio-item radio-checked' : 'radio-item'}}">
+        <radio color="#ffffff" class="radio" value="Deliver"/>
+        <text class="radio-text">Deliver</text>
+      </label>
+    </radio-group>
+  </view>
+  <view hidden={{deliveryAddressVisible}} class="pb-xxl">
+    <text class="section-title mt-xxl">Select Address</text>
+    <radio-group class="radio-group" onChange="addressRadioChange">
+      <label class="{{(selectedAddress === item.AddressTitle) ? 'radio-item radio-checked' : 'radio-item'}}" a:for="{{customerData.CustomerAddresses}}">
+        <radio color="#ffffff" class="radio" value="{{item.AddressTitle}}"/>
+        <text class="radio-text">{{item.AddressTitle}}</text>
+        </radio>
+      </label>
+    </radio-group>
+  </view>
+  <view>
+    <button class="btn-primary" onTap="placeOrder">Place Order</button>
+  </view>
+</view>
